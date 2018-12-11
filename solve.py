@@ -72,11 +72,15 @@ def path_exists(grid, queries):
     # print(next_node('up', 2, 3))
 
     def verify_and_store_path_in_stack(row, column):
+        print(grid[row][column])
         if grid[row][column] == 1:
-            node_stack.put(row, column)
-            dict.update({(row, column): grid[row][column]})
-        return None
+            node_stack.put((row, column))
+            path_visited.update({(row, column): grid[row][column]})
+            print(node_stack.get())
+        else:
+            print('Try different direction')
 
+    verify_and_store_path_in_stack(1, 1)
     # raise NotImplementedError
 
 
