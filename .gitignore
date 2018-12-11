@@ -219,4 +219,6 @@ dmypy.json
 ### tar and zip files ###
 *.zip.gz
 *.zip
+*.xml
+*.iml
 # End of https://www.gitignore.io/api/linux,python,pycharm

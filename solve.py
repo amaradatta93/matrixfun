@@ -43,13 +43,20 @@ def path_exists(grid, queries):
     :return:            The result for each query, whether a path exists from start -> end.
     :rtype:             list[bool]
     """
-
+    '''
+    get the size of give matrix
+    '''
     i = len(grid) - 1
     j = len(grid[0]) - 1
     elements = i * j
-    node_stack = queue.LifoQueue(maxsize=elements)
 
-    def next_node(direction, row, column):
+    '''
+    initialize the stack and dictionary to store visited path 
+    '''
+    node_stack = queue.LifoQueue(maxsize=elements)
+    path_visited = {}
+
+    def goto_next_node_and_store_previous(direction, row, column):
         if direction == 'up' and row > 0:
             row = row - 1
         elif direction == 'down' and row < i:
@@ -61,11 +68,14 @@ def path_exists(grid, queries):
         else:
             print('End of matrix, there can be no movement')
         return row, column
+
     # print(next_node('up', 2, 3))
 
-    def store_path_in_stack():
-        pass
-
+    def verify_and_store_path_in_stack(row, column):
+        if grid[row][column] == 1:
+            node_stack.put(row, column)
+            dict.update({(row, column): grid[row][column]})
+        return None
 
     # raise NotImplementedError
 
