@@ -46,43 +46,8 @@ def path_exists(grid, queries):
     '''
     get the size of give matrix
     '''
-    i = len(grid) - 1
-    j = len(grid[0]) - 1
-    elements = i * j
 
-    '''
-    initialize the stack and dictionary to store visited path 
-    '''
-    node_stack = queue.LifoQueue(maxsize=elements)
-    path_visited = {}
+    
 
-    def goto_next_node_and_store_previous(direction, row, column):
-        if direction == 'up' and row > 0:
-            row = row - 1
-        elif direction == 'down' and row < i:
-            row = row + 1
-        elif direction == 'left' and column > 0:
-            column = column - 1
-        elif direction == 'right' and column < j:
-            column = column + 1
-        else:
-            print('End of matrix, there can be no movement')
-        return row, column
-
-    # print(next_node('up', 2, 3))
-
-    def verify_and_store_path_in_stack(row, column):
-        print(grid[row][column])
-        if grid[row][column] == 1:
-            node_stack.put((row, column))
-            path_visited.update({(row, column): grid[row][column]})
-            print(node_stack.get())
-        else:
-            print('Try different direction')
-
-    verify_and_store_path_in_stack(1, 1)
-    # raise NotImplementedError
-
-
-grid = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 1, 1, 0], [0, 1, 1, 1]]
-path_exists(grid, None)
+# grid = [[0, 1, 1, 0], [0, 0, 1, 0], [0, 1, 1, 0], [0, 1, 1, 1]]
+# path_exists(grid, None)
