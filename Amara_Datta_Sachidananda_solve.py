@@ -128,6 +128,11 @@ def path_exists(grid, queries):
                 return True
 
         def get_new_cell_position(current_cell_position):
+            '''
+            get the next cell positions/adjacent cell and form the children list
+            :param current_cell_position: current cell position or location
+            :return: list of surrounding cells inside the range of matrix
+            '''
             for next_cell_to_go in surrounding_cells:
                 temp_cell = current_cell_position.position[0] + next_cell_to_go[0], current_cell_position.position[1] + \
                             next_cell_to_go[1]
@@ -149,6 +154,12 @@ def path_exists(grid, queries):
             return children
 
         def sort_children(current_cell_position):
+            '''
+            find the child which meets all the desired criteria like the path should be 1 heuristic should be less
+            than the current cell
+            :param current_cell_position: current cell position or location
+            :return: the child which satisfies all the condition
+            '''
             children_list = get_new_cell_position(current_cell_position)
 
             for each_child in children_list:
@@ -172,6 +183,9 @@ def path_exists(grid, queries):
         start_cell.f = initial_hueristic_calc.f
 
         for iteration_stopper in range(len(grid) ** 2):
+            '''
+            if the iteration goes beyond the range then stop the iteration
+            '''
             if len(open_cells) > 0:
 
                 current_cell = open_cells[0]
