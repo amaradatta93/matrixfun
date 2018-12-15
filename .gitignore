@@ -221,4 +221,6 @@ dmypy.json
 *.zip
 *.xml
 *.iml
+*.jpeg
+*.jpg
 # End of https://www.gitignore.io/api/linux,python,pycharm
